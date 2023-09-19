@@ -3,16 +3,18 @@ from skimage.io import imshow, imread
 import cv2
 import os
 class utils:
-    def __init__(self, valor):
-        self.valor = valor
+    path = ""
+    # Carga la imagen desde la ubicación del archivo
+    image = ""
+    def __init__(self, path):
+        self.path = path
+        self.image = cv2.imread(self.path)
 
-
-    def showImage(self, name, path):
-        # Carga la imagen desde la ubicación del archivo
-        image = cv2.imread(path)
-
+    def getShape(self):
+        return self.image.shape
+    def showImage(self, name):
         # Muestra la imagen en una ventana
-        cv2.imshow(name, image)
+        cv2.imshow(name, self.image)
 
 
         # Espera a que el usuario presione una tecla
@@ -21,7 +23,10 @@ class utils:
         # Cierra todas las ventanas
         cv2.destroyAllWindows()
 
-    def cut_image(self, ruta_img: str, ruta_img_crop: str, x_inicial: int, x_final: int, y_inicial: int,
+
+
+
+    def cut_image(self, ruta_img_crop: str, x_inicial: int, x_final: int, y_inicial: int,
                            y_final: int) -> None:
         """
         Esta función recibe una imagen y devuelve otra imagen recortada.
@@ -39,7 +44,7 @@ class utils:
         """
         try:
             # Abrir la imagen
-            image = cv2.imread(ruta_img)
+            image = self.image
 
             # Obtener la imagen recortada
             image_crop = image[x_inicial:x_final, y_inicial:y_final]

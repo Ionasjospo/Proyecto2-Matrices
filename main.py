@@ -6,12 +6,15 @@ from utils import utils
 
 
 ## Parte 1 -----------------------------------------
-ut = utils("")
+img1 = utils("Images/img1.jpg")
+img2 = utils("Images/img2.jpg")
 
-#ut.showImage('First Image', "Images/img1.jpg")
-#ut.showImage('Second Image', "Images/img2.jpg")
+img1.showImage('First Image')
+img2.showImage('Second Image')
 
-ut.cut_image("Images/img2.jpg", "Images/newImage.jpg",0, 450, 750, 1150)
+print(f"Tamaño antes de cortar : {img1.getShape()}")
+img1.cut_image("Images/newImage.jpg",0, 450, 750, 1150)
+
 
 
 
