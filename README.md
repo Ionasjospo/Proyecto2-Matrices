@@ -46,7 +46,9 @@ A continuación solicitamos:
   **Recordatorio**: Pueden utilizar la función proporcionada: `recortar_imagen`. Esta función además de recortar la imagen la guarda en el directorio indicado.
 
   Comentar la importancia de este paso en caso de querer realizar operaciones entre las dos imágenes.
+
 4. Para **una** de las imágenes recortadas, mostrarla como una matriz. Imprimir el tamaño.
+
 5. Calcular la matriz traspuesta de las imágenes del punto 3. Mostrarlas como matriz y como imagen. Comentar los resultados.
 
   **NOTA**: se deben trasponer las coordenadas x,y y dejo igual eje z (canales de RGB).
@@ -56,6 +58,7 @@ A continuación solicitamos:
 
 **Del punto 6 en adelante, utilizar las imágenes en blanco y negro obtenidas en dicho punto**
 7. Verificar para cada una de las matrices correspondientes a las imágenes recortadas, si existe su inversa y en caso de que exista, calcular.
+
 8.  Producto de una matriz por un escalar
 
   **Aplicación**: Ajuste de contraste en imágenes:
