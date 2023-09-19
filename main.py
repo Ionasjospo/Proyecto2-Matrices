@@ -11,7 +11,9 @@ ut = utils("")
 #ut.showImage('First Image', "Images/img1.jpg")
 #ut.showImage('Second Image', "Images/img2.jpg")
 
-ut.cut_image("Images/img2.jpg", "Images/newImage.jpg",0, 450, 750, 1150)
+ut.cut_image("Images/img1.jpg", "Images/newImage1.jpg",0, 400, 400, 800)
+ut.cut_image("Images/img2.jpg", "Images/newImage2.jpg",0, 450, 750, 1150)
+
 
 
 
