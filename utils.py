@@ -1,7 +1,9 @@
 import numpy as np
 from skimage.io import imshow, imread
 import cv2
+import matplotlib.pyplot as plt
 import os
+
 class utils:
     path = ""
     # Carga la imagen desde la ubicación del archivo
@@ -55,3 +57,45 @@ class utils:
             print("Imagen recortada con éxito. El tamaño de la imagen es de" + str(image_crop.shape))
         except Exception as e:
             print("Ha ocurrido un error:", str(e))
+
+    def imagen_a_matriz(self):
+        imagen = self.image
+        # Asegurarse de que la imagen se haya cargado correctamente
+        if imagen is not None:
+            # Convertir de BGR a RGB
+            imagen_rgb = cv2.cvtColor(imagen, cv2.COLOR_BGR2RGB)
+            
+            return imagen_rgb
+        else:
+            print("No se pudo cargar la imagen.")
+
+    @staticmethod
+    def imprimir_dos_matrices(img1, img2, texto: str):
+        # Mostrar las imágenes en escala de grises
+        plt.subplot(121)
+        plt.imshow(img1, cmap='gray')
+        plt.title('Imagen 1 '+ texto)
+        plt.axis('off')
+
+        plt.subplot(122)
+        plt.imshow(img2, cmap='gray')
+        plt.title('Imagen 2 '+ texto)
+        plt.axis('off')
+
+        plt.tight_layout()
+        plt.show()
+
+    def calcular_traspuesta(self):
+        imagen = self.image
+        imagen_rgb = cv2.cvtColor(imagen, cv2.COLOR_BGR2RGB)
+        # Calcular la matriz traspuesta de la imagen
+        imagen_traspuesta = np.transpose(imagen_rgb, (1, 0, 2))
+        return imagen_traspuesta
+
+    def convertir_a_escala_de_grises(self):
+        imagen = self.image
+        imagen_gris = cv2.cvtColor(imagen, cv2.COLOR_BGR2GRAY)
+        return imagen_gris
+
+
+
