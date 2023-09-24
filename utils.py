@@ -69,6 +69,22 @@ class utils:
         else:
             print("No se pudo cargar la imagen.")
 
+    def matriz_a_imagen(titulo, matriz):
+        # Normaliza la matriz para que los valores estén en el rango 0-255
+        matriz_normalizada = (matriz - np.min(matriz)) / (np.max(matriz) - np.min(matriz)) * 255
+
+        # Utiliza np.clip() para asegurarte de que los valores estén en el rango 0-255
+        matriz_normalizada = np.clip(matriz_normalizada, 0, 255)
+
+        # Convierte los valores a enteros de 8 bits
+        matriz_normalizada = matriz_normalizada.astype(np.uint8)
+
+        # Muestra la imagen
+        cv2.imshow(titulo, matriz_normalizada)
+        cv2.waitKey(0)
+        cv2.destroyAllWindows()
+
+
     @staticmethod
     def imprimir_dos_matrices(img1, img2, texto: str):
         # Mostrar las imágenes en escala de grises
@@ -98,4 +114,33 @@ class utils:
         return imagen_gris
 
 
+    def matriz_por_escalar(matriz, alpha):
+        resultado =  matriz * alpha
+        resultado_limitado = np.clip(resultado, 0, 255)
+        return resultado_limitado
 
+    def crear_W(shape):
+        if shape[0] != shape[1]: #Tiene que tener el mismo largo que ancho, sino tira excepcion personalizada
+            raise ValueError("La matríz debe tener el mismo largo que ancho.")
+        # Crear una matriz con unos en la antidiagonal
+        I = np.eye(shape[0])
+        w = np.fliplr(I)
+        return w
+
+    def voltear_imagen(matriz1, matriz2):
+        # Multiplicar la matriz original por la matriz con unos en la antidiagonal
+        resultado = np.dot(matriz1, matriz2)
+        resultado_limitado = np.clip(resultado, 0, 255)
+
+        return resultado
+
+
+    def son_iguales(matriz1, matriz2):
+        return np.array_equal(matriz1, matriz2)
+
+    def negativo_imagen(matriz, shape):
+        if shape[0] != shape[1]: #Tiene que tener el mismo largo que ancho, sino tira excepcion personalizada
+            raise ValueError("La matríz debe tener el mismo largo que ancho.")
+        # Crear una matriz con 255
+        matriz255 = np.full((shape[0], shape[1]), 255, dtype=np.uint8)
+        return matriz255 - matriz
