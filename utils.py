@@ -64,6 +64,7 @@ class utils:
         if imagen is not None:
             # Convertir de BGR a RGB
             imagen_rgb = cv2.cvtColor(imagen, cv2.COLOR_BGR2RGB)
+
             
             return imagen_rgb
         else:
@@ -81,6 +82,7 @@ class utils:
 
         # Muestra la imagen
         cv2.imshow(titulo, matriz_normalizada)
+        cv2.moveWindow(titulo, 900, 100)
         cv2.waitKey(0)
         cv2.destroyAllWindows()
 
