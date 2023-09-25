@@ -115,6 +115,19 @@ class utils:
         imagen_gris = cv2.cvtColor(imagen, cv2.COLOR_BGR2GRAY)
         return imagen_gris
 
+    @staticmethod
+    def matriz_inversa(matriz):
+        determinante = np.linalg.det(matriz)
+        # Verifica si el determinante es diferente de cero
+        if determinante != 0:
+            # La matriz tiene inversa
+            # Calcula la inversa de la matriz
+            matriz_inversa = np.linalg.inv(matriz)
+            print("La matriz tiene inversa.")
+            return matriz_inversa
+        else:
+            # La matriz no tiene inversa
+            print("La matriz no tiene inversa, su determinante es igual a cero.")
 
     def matriz_por_escalar(matriz, alpha):
         resultado =  matriz * alpha
