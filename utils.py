@@ -123,8 +123,9 @@ class utils:
             # La matriz tiene inversa
             # Calcula la inversa de la matriz
             matriz_inversa = np.linalg.inv(matriz)
+            matriz_inversa_limitada = np.clip(matriz_inversa, 0, 255).astype(np.uint8)
             print("La matriz tiene inversa.")
-            return matriz_inversa
+            return matriz_inversa_limitada
         else:
             # La matriz no tiene inversa
             print("La matriz no tiene inversa, su determinante es igual a cero.")

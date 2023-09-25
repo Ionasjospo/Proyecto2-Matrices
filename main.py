@@ -87,10 +87,19 @@ def parte7():
     img2_cortada = utils("Images/newImage1.jpg")
     img1_gris = img1_cortada.convertir_a_escala_de_grises()
     img2_gris = img2_cortada.convertir_a_escala_de_grises()
-    
+
+
+
+    utils.matriz_inversa(img1_gris)
     img1_inversa = utils.matriz_inversa(img1_gris)
     img2_inversa = utils.matriz_inversa(img2_gris)
     utils.matriz_a_imagen("Imagen 1 inversa: ", img1_inversa)
+
+    mostrarTexto.delete("1.0", "end")
+    mostrarTexto.insert(tk.END, "Parte 7: \n")
+    mostrarTexto.insert(tk.END, f"Matriz inversa de la imagen 1: \n {img1_inversa}\n")
+
+    mostrarTexto.insert(tk.END, f"Matriz inversa de la imagen 2: \n {img2_inversa}\n")
     utils.matriz_a_imagen("Imagen 2 inversa: ", img2_inversa)
 
 
