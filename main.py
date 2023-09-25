@@ -90,8 +90,8 @@ def parte7():
     
     img1_inversa = utils.matriz_inversa(img1_gris)
     img2_inversa = utils.matriz_inversa(img2_gris)
-    mostrarTexto.delete("1.0", "end")
-    mostrarTexto.insert(tk.END, "Parte 7: \n")
+    utils.matriz_a_imagen("Imagen 1 inversa: ", img1_inversa)
+    utils.matriz_a_imagen("Imagen 2 inversa: ", img2_inversa)
 
 
 def parte8():
